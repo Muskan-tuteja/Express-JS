@@ -1,12 +1,21 @@
-import express from 'express'
-import path from 'path'
+import express from "express";
+import path from "path";
 
-const app = express()
+const app = express();
 
-app.get("/",(res,req)=>{
-    const absPath = path.resolve('./client/Home.html')
-req.sendFile(absPath)
-})
+app.get("/Home", (req, res) => {
+    const absPath = path.resolve("../client/Home.html");
+    res.sendFile(absPath);
+});
+app.get("/login", (req, res) => {
+    const absPath = path.resolve("../client/Login.html");
+    res.sendFile(absPath);
+});
+app.get("/about", (req,res)=>{
+    const absPath = path.resolve("../Client/about.html")
+    res.sendFile(absPath)
+});
 
-
-app.listen(8000)
+app.listen(8000, () => {
+    console.log("Server running on http://localhost:8000");
+});
