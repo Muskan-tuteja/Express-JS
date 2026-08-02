@@ -3,6 +3,12 @@ import path from "path";
 
 const app = express();
 
+app.use((req,res,next)=>{
+    console.log("user is accessing" +req.url + "Page");
+    next()
+
+})
+
 app.get("/Home", (req, res) => {
     const absPath = path.resolve("../client/Home.html");
     res.sendFile(absPath);
