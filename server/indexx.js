@@ -15,6 +15,10 @@ app.get("/about", (req,res)=>{
     const absPath = path.resolve("../Client/about.html")
     res.sendFile(absPath)
 });
+app.use((req,res)=>{
+    const absPath = path.resolve('../Client/404.html')
+    res.status(404).sendFile(absPath)
+})
 
 app.listen(8000, () => {
     console.log("Server running on http://localhost:8000");
