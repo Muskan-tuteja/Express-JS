@@ -1,0 +1,26 @@
+[
+    {
+        "id":1,
+        "name":"Muskan",
+        "age": 23,
+        "email":"muskan@gmail.com"
+    },
+    {
+        "id":2,
+        "name":"Muskan1234",
+        "age": 23,
+        "email":"muskann@gmail.com"
+    },
+    {
+        "id":3,
+        "name":"Muskan",
+        "age": 93,
+        "email":"muskan@gmail.com"
+    },
+    {
+        "id":4,
+        "name":"Muskann",
+        "age": 83,
+        "email":"muskan@gmail.com"
+    }
+]
