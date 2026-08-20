@@ -1,25 +1,25 @@
-import express from 'express'
-import { MongoClient } from 'mongodb'
+import express from "express";
+import { MongoClient } from "mongodb";
+import fs from "fs";
+import path from "path";
 
-const dbName = "college"
-const url = "mongodb://localhost:27017"
+const dbName = "college";
+const url = "mongodb://localhost:27017";
 
-const client = new MongoClient(url)
+const client = new MongoClient(url);
 
-async function dbConnection() {
-    await client.connect()
-    const db = client.db(dbName)
+const app = express();
+app.set("view engine", 'ejs')
 
-    const collections = db.collection('students')
+app.get("/", async (req, resp) => {
+  await client.connect();
+  const db = client.db(dbName);
 
-    const result = await collections.find().toArray()
+  const collections = db.collection("students");
 
-    console.log(result);
-    
-    
-}
-dbConnection()
+  const result = await collections.find().toArray();
 
-const app = express()
-app.listen(3200)
-
+  console.log(result);
+  resp.render("students", { result });
+});
+app.listen(3200);
